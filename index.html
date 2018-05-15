@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<title>Side Street Cafe</title>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="cf.png"/>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  #f{text-align:center;}
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("/w3images/pizza.jpg");
+    min-height: 90%;
+  }
+  #back{background-image:url("content/img1.jpg");background-repeat:no-repeat; background-size:cover;transition:opacity 3s;}
+  #googleMap{background-image:url("content/img11.png");background-repeat:no-repeat; background-size:cover; display:flex; justify-content:center;}
+  #btn{width:200px; height:50px; margin-top:10%;font-size:25px;}
+  #pad{margin-top:10%;}
+
+  #pading{margin-top:10%;}
+  #googleMaping{background-color:#79a5ea; background-size:cover; display:flex; justify-content:center;}
+  .headers{text-align:center;font-size:45px;}
+  #m{margin-left:1%;margin-right:1%;}
+  @media(max-width:360px){
+   #btn{margin-top:80%;}
+  }
+  @media(min-width:360px){
+   #btn{margin-top:60%;}
+  }
+</style>
+<body>
+  <!--- Made by Jorge O Jara Cabrera -->
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+<div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="#" class="w3-bar-item w3-button">HOME</a>
+    <a href="#menu" class="w3-bar-item w3-button">MENU</a>
+    <a href="#googleMap" class="w3-bar-item w3-button">Location</a>
+   <a href="#f" class="w3-bar-item w3-button">JOIN</a>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header id='back' class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-padding">
+    <span class="w3-tag w3-xlarge">
+<?php
+      if($days != "Sun"){
+      echo "Open From 7am to 3PM";
+   }else{
+    echo "Close Today";
+}
+ ?>
+</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-hide-small" style="font-size:100px"><br></span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b><br></b></span>
+  </div>
+</header>
+
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
+   <div class="w3-col s4 tablink w3-padding-large w3-hover-red"style='padding:0px;margin-left:0px;font-size:30px;height:85px;text-aling:center;padding-top:45px;'>Breakfast</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red"style='height:85px;font-size:30px;'>Lunch</div>
+      </a>
+         <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red" style='height:85px;font-size:30px;'>Drinks</div>
+      </a>
+    </div>
+
+    <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
+      <h1 class='headers'><b>3 Egg Omelets</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>Cheese</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.39</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>Ham & Cheese</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7.09</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>saugage or bacon</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7.09</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>western</b><!--  <span class="w3-tag w3-red w3-round">Hot!</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$7.29</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>veggie</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$7.09</span></h1>
+      <p class="w3-text-grey"></p>
+    <hr>
+         <h1 class='headers'><b>Sandwiches</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>Egg & Cheese</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$3.29</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+       <h1><b>Egg,ham and cheese</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.19</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+       <h1><b>veggie & Egg</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.19</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+         <h1><b>western</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.19</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+        <h1><b>Egg,Cheese with bacon or sausage </b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.19</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+        <h1 class='headers'><b>Butter milk Pancakes</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+         <h1><b>2 Pancakes</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$3.99</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+       <h1><b>4 Pancakes</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$5.39</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+       <h1><b> Belgian waffle</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.99</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+        <h1><b>French toast 2</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.49</span></h1>
+      <p class="w3-text-grey"></p>
+       <hr>
+          <h1><b>Biscuit & gravy 2</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.19</span></h1>
+      <p class="w3-text-grey"></p>
+         <hr>
+          <h1><b>2 Eggs</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$4.39</span></h1>
+      <p class="w3-text-grey">Comes With toast</p>
+        <p class="w3-text-grey">Pick one = Home fries,grits,Bacon or Sausage</p>
+       <hr>
+    </div>
+
+    <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
+      <h1 class='headers'><b>SANDWICHES / CLUBS</b> <!-- <span class="w3-tag w3-grey w3-round">popular</span> --> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class='headers' class="w3-text-grey">Serve with a pickle and chips</p>
+      <p class='headers' class="w3-text-grey">Sandwiches/ Clubs come with Mayo-Tomato-Lettuce-Cheese</p>
+       <p class='headers' class="w3-text-grey">Clubs come with bacon and 3 breads</p>
+      <hr>
+   <!-- List Lunch -->
+      <h1><b>Ham & Cheese</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.25</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>Veggie</b><span class="w3-right w3-tag w3-dark-grey w3-round">$6.75</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1><b>Tuna Salad</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.25</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+         <h1><b>Chicken Salad</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.75</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>B.L.T</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.25</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+          <h1><b>Roast Beef</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.50</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$6.75</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+        <h1><b>Turkey</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.25</span><span id='m' class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+
+      <h1 class='headers'><b></b> <!-- <span class="w3-tag w3-grey w3-round">popular</span> --> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class='headers' class="w3-text-grey">Served on whole grain breads</p>
+      <p class='headers' class="w3-text-grey">Wheat- white-Honey-oat & Rye</p>
+      <hr>
+   <!--    Salads  -->
+   <h1 class='headers'><b>Salads</b> <!-- <span class="w3-tag w3-grey w3-round">popular</span> --></h1>
+      <hr>
+     <h1><b>Side Salad</b><span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+        <h1><b>Chef</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+        <h1><b>Chicken Salad</b><span class="w3-right w3-tag w3-dark-grey w3-round">$8.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+        <h1><b>Garden</b><span class="w3-right w3-tag w3-dark-grey w3-round">$5.75</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+             <h1><b>Greek</b><span class="w3-right w3-tag w3-dark-grey w3-round">$8.25</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+              <h1><b>Tuna</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey"></p>
+       <h1 class='headers'><b>Dressings</b> <!-- <span class="w3-tag w3-grey w3-round">New</span> --><!-- <span class="w3-right w3-tag w3-dark-grey w3-round"></span> --></h1>
+      <p class='headers' class="w3-text-grey">Italian - Blue Cheese - Ranch - Horseradish - 1,000 island </p>
+      <hr>
+       <!--  wraps -->
+      <h1 class='headers'><b>Wraps</b> <!-- <span class="w3-tag w3-grey w3-round">popular</span> --></h1>
+      <hr>
+      <h1><b>#1</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">Turkey,cranberry sauce,onions </p><p>lettuce,Tomatoe,Stuffing,mayo</p>
+      <hr>
+      <h1><b>#2</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">Ham and American cheese </p><p>Bacon,lettuce,Tomatoe,mayo</p>
+      <hr>
+      <h1><b>#3</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.25</span></h1>
+      <p class="w3-text-grey">Ham -Turkey, Swiss</p><p> Lettuce, Tomatoe, onions, mayo</p>
+      <hr>
+        <h1><b>#4</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.25</span></h1>
+      <p class="w3-text-grey">Chicken salad, Bacon</p><p>onions, Lettuce, Provalone</p>
+      <hr>
+      <h1><b>#5</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">Tuna Salad, American</p><p>cheese, mayo, Tomatoe, Lettuce</p>
+      <hr>
+      <h1><b>#6</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">Roast Beef, Swiss, Mushrooms, Tomatoe, Horseradish Dressing</p>
+      <hr>
+      <h1><b>#7</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">B.L.T, mayo-Tomatoe,Lettuce,American cheese</p>
+      <hr>
+       <h1><b>#8</b><span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">veggie,comes with our veggies,1000 island</p>
+      <hr>
+         <h1 class='headers'><b>Wrap Breads</b><span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class='headers' class="w3-text-grey">Plain - wheat-sundried Tomatoe</p>
+      <p class='headers' class="w3-text-grey">(You Can Also Make Your wrap)</p>
+      <hr>
+       <h1 class='headers'><b>Add Ons</b> <!-- <span class="w3-tag w3-grey w3-round">popular</span> --> <span class="w3-right w3-tag w3-dark-grey w3-round">$0.50</span></h1>
+         <p class='headers' class="w3-text-grey">X-Cheese-X-Bacon -Pickles-Black Olives- Lettuce - Tomato -Mushrooms-Green Peppers-Onions-Mayo-Dressing-X-Meat</p>
+      <hr>
+      <h1><b>Soup of the Day</b></h1>
+      <p class="w3-text-grey">Cup ...$2.50....bowl...$3.25</p>
+      <hr>
+      <h1 class='headers'><b></b> <!-- <span class="w3-tag w3-grey w3-round">popular</span> --> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+         <p class='headers' class="w3-text-grey">PLEASE IMFORM US OF ANY FOOD ALLERGIES</p>
+         <hr>
+         <p class='headers' class="w3-text-grey">Add 7% MEALS TAXES</p>
+      </div>
+  <!--   drinks -->
+    <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
+  <h1><b>Coffee</b> <!-- <span class="w3-tag w3-grey w3-round">Seasonal</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$1.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+  <h1><b>Hot Tea</b> <!-- <span class="w3-tag w3-grey w3-round">Seasonal</span> --><span class="w3-right w3-tag w3-dark-grey w3-round">$1.00</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>Soda with Refill</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$1.75</span></h1>
+      <p class="w3-text-grey">Coke -Diet Coke -Root Beer - Sprite -fanta - orange - Hi-C Friut Punch</p>
+      <hr>
+
+      <h1><b>Sweet and unSweet tea</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$1.75</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+       <h1><b>milk shake</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">strawberry - chocolate - Vanilla</p>
+      <hr>
+       <h1><b>Soda floats</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+         <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class='headers' class="w3-text-grey">Ask About our Home made Baked goods</p>
+      <hr>
+        <h1 class='headers'><b>Ice cream</b><span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+        <h1><b>Jr</b><span class="w3-right w3-tag w3-dark-grey w3-round">$1.99</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>sm</b><span class="w3-right w3-tag w3-dark-grey w3-round">$2.50</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>Med</b><span class="w3-right w3-tag w3-dark-grey w3-round">$3.15</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+       <h1><b>Lg</b><span class="w3-right w3-tag w3-dark-grey w3-round">$3.34</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1 class='header'><b>waffle Cone</b><span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>Sm</b><span class="w3-right w3-tag w3-dark-grey w3-round">$2.99</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>Lg</b><span class="w3-right w3-tag w3-dark-grey w3-round">$3.79</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1 class='header'><b>Sundaes</b></h1>
+      <p class='header' class="w3-text-grey">Hot Fudge - strawberry - Caramel - Butterscotch</p>
+      <hr>
+       <h1><b>Sm</b><span class="w3-right w3-tag w3-dark-grey w3-round">$3.25</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b>Lg</b><span class="w3-right w3-tag w3-dark-grey w3-round">$4.49</span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1 class='header'><b>Speciality Sundaes</b></h1>
+      <p class='header' class="w3-text-grey">One Size Only</p>
+      <p class='header' class="w3-text-grey">Brownie - Apple Cake - Banana Split</p>
+      <p class='header' class="w3-text-grey">$6.75</p>
+      <hr>
+       <h1 class='header'><b>Add Ons</b></h1>
+        <h1 class='header'><b>Sprinkles-$0.25</b></h1>
+         <h1 class='header'><b>Candy Bar Topping-$0.50</b></h1>
+         <h1 class='header'><b>Peanut Butter Topping-$0.50</b></h1>
+         </div>
+     </div>
+</div>
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+   <!--- <p>History</p>
+    <p><strong></strong>
+    <p>We are proud of our Store.</p>-->
+    <h1><b>Opening Hours</b></h1>
+
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p>Monday 7:00- 3:00</p>
+        <p>Tuesday 7:00 - 3:00</p>
+        <p>Wednesday 7:00 - 3:00</p>
+        <p>Thursday 7:00 - 3:00</p>
+      </div>
+      <div class="w3-col s6">
+        <p>Friday 7:00 - 3:00</p>
+        <p>Saturday 7:00- 3:00</p>
+        <p>Sunday Closed</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Contact (with google maps) -->
+<div id="googleMap" class="w3-grayscale-max" style="width:100%;height:520px;">
+   <a id='pad' href="https://www.google.com/maps/place/SIDE+STREET+CAFE/@28.0917188,-81.7301457,20z/data=!4m8!1m2!2m1!1sside+street+caf+e!3m4!1s0x88dd6d0192ba5075:0xe4b694c231975ffa!8m2!3d28.0917394!4d-81.7300337"><button id="btn" class='btn btn-danger'>Location</button></a>
+</div>
+<?php
+
+function show(){
+   echo "<div style='margin:0px; border-radius:0px;' class='alert alert-succes'>
+  <strong>Success!</strong> Thanks FOR Joining!".$_SESSION['conflict'].".
+</div>";
+}
+   if(isset($_SESSION['conflict'])){
+       echo "<div id='f' class='w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge'>
+  <div class='3-content'>
+    <h1 class='w3-center w3-jumbo' style='margin-bottom:64px'>Join Email Specials list</h1>
+    <p><span class='w3-tag'>FYI!</span>When You Join Our Email Specials List You will recive Our Weekly Specials by Email to keep you updated</p>
+    <p class='w3-xxlarge'><strong>Reserve</strong> Your place on the Email List and keep Yourself updated</p>
+    <form  method='POST' action='#'>
+      <p><input type='text' name='name' class='w3-input w3-padding-16 w3-border'  placeholder='Firs Name' required></p>
+       <p><input name='lastName' class='w3-input w3-padding-16 w3-border' type='text' placeholder='Last Name' required></p>
+      <p><input name='email' class='w3-input w3-padding-16 w3-border' type='email' placeholder='Your Email' required/></p>
+      <p><button name='sub' class='w3-button w3-light-grey w3-block' type='submit'>Join Now</button></p>
+    </form>
+  </div>
+</div>";
+   }else{
+       echo "<div id='f' class='w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge'>
+  <div class='3-content'>
+    <h1 class='w3-center w3-jumbo' style='margin-bottom:64px'>Join Email Specials list</h1>
+    <p><span class='w3-tag'>FYI!</span>When You Join Our Email Specials List You will recive Our Weekly Specials by Email to keep you updated</p>
+    <p class='w3-xxlarge'><strong>Reserve</strong> Your place on the Email List and keep Yourselft updated</p>
+    <form  method='POST' action='#'>
+      <p><input type='text' name='name' class='w3-input w3-padding-16 w3-border'  placeholder='First Name' required></p>
+       <p><input name='lastName' class='w3-input w3-padding-16 w3-border' type='text' placeholder='Last Name' required></p>
+      <p><input name='email' class='w3-input w3-padding-16 w3-border' type='email' placeholder='Your Email' required/></p>
+      <p><button name='sub' class='w3-button w3-light-grey w3-block' type='submit'>Join Now</button></p>
+    </form>
+  </div>
+</div>";
+   }
+?>
+<?php
+  $connect = new mysqli('198.57.247.181','chrisbouc4','p56uaQSUXf1D','chrisbou_clients');
+ if(!$connect){
+     echo "help connection error \....";
+ }else{
+    echo "<script>console.log('its done');</script>";
+ }
+    $name  = $connect->real_escape_string($_POST['name']);
+    $last =  $connect->real_escape_string($_POST['lastName']);
+    $email = $connect->real_escape_string($_POST['email']);
+    if(isset($_POST['sub'])){
+        if(strlen($name) > 0 && strlen($last) > 0 && strlen($email) > 0){
+        if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+          $getting = mysqli_query($connect,"SELECT * FROM users WHERE email='$email'");
+        if(mysqli_num_rows($getting) == 0){
+        $join ="INSERT INTO users(ID,name,lastname,email)VALUES('NULL','$name','$last','$email')";
+        $doing= mysqli_query($connect,$join);
+        if($doing == true){
+             $_SESSION["conflict"] = $name." ". $last;
+//Made By Jorge O Jara Cabrera......
+   require "second.php";
+//PHPMailer Object
+$mail = new PHPMailer;
+
+//From email address and name
+$mail->From = "From@Mysidestreetcafe.com";
+$mail->FromName = "SideStreetCafe";
+
+//To address and name
+
+//enable smpt
+ ///$mail->isSMPT();
+//auth
+   $mail->Username ="mysidestreetcafe@gmail.com";
+   $mail->Pasword = "lokita1212";
+
+//Send HTML or Plain Text email
+$mail->isHTML(true);
+//$mail->addEmbeddedImage('woo.png','woo');
+$mail->Subject = "Thanks For Joining";
+$mail->Body = "<!DOCTYPE html>
+<html>
+<head>
+  <title>SideStreetCafe</title>
+   <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <style>
+
+    .containers{
+  margin-top:5%;
+  height:auto;
+  min-height:600px;
+  width:100%;
+  padding:0px;
+  display:flex;
+  justify-content: center;
+}
+.secondcontainer{
+  height:auto;
+  width:80%;
+  text-align:center;
+}
+.image{
+  height:300px;
+  width:100%;
+  min-width:100%;
+}
+.header{
+  text-align:center;
+  width:100%;
+  height:auto;
+}
+.headercontent{
+  font-size:50px;
+}
+.text{
+  height:auto;
+  width:100%;
+  min-width:100%;
+  text-align:center;
+  font-size:30px;
+}
+#btn{
+  margin-top:5%;
+  margin-bottom:5%;
+  width:400px;
+  border-radius:5px;
+}
+@media(max-width:400px){
+  .headercontent{
+    font-size:40px;
+  }
+  .text{
+    font-size:20px;
+    display:flex;
+    justify-content:center;
+    width:100%;
+  }
+  #btn{
+    width:200px;
+  }
+.secondcontainer{width:100%;}
+  .textsecond{
+  width:200px;
+}
+}
+#btn {
+    background-color: #d271dd;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+}
+
+#btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.textsecond{text-align:center;width:100%;}
+body{
+  margin:0px;
+  padding:0px;
+}
+  </style>
+</head>
+<body>
+   <div class='containers'>
+    <div class='secondcontainer'>
+       <hr>
+   <div class='header'>
+      <h1 class='headercontent'>Thanks ".$name ." ". $last."</h1>
+     </div>
+    <div class='text'>
+      <div class='textsecond'>
+      <p class='textcontent'>Thanks For Joining our Email List. We going to be sending you a emails, letting you know about any changes.</p>
+    </div>
+       </div>
+    </div>
+</div>
+ </body>
+</html>";
+ $mail->SMTPAuth   = true;
+// sets the prefix to the server
+$mail->SMTPSecure = "tls";
+   $name  = $connect->real_escape_string($_POST['name']);
+    $last =  $connect->real_escape_string($_POST['lastName']);
+     $mail->addAddress($email, $name . $last);
+     $mail->addAddress('jjtrinity12@gmail.com', $name . $last);
+     $mail->addReplyTo("mysidestreetcafe@gmail.com", "Reply");
+     $mail->send();
+     echo "<script>alert('Thanks,Please check Your Spam Emails for a welcome SideStreetCafe Email')</script>";
+           show();
+        }else{echo "<script>console.log('no start');</script>";}
+    }
+    }
+    }
+    }
+?>
+<style>
+.container{
+    font-size: 40px;
+    text-align: center;
+    text-decoration: none;
+   height:120px;
+   min-width:100%;
+   background-color:black;
+   margin:0px;
+   padding-top:20px;
+}
+     .fa-instagram {
+  color: white;
+}
+.fa-pinterest {
+  color: white;
+}
+.fa-twitter {
+  color: white;
+}
+.fa-facebook {
+  color: white;
+}
+.secondblock{display:flex;}
+#block{}
+#blockOne{}
+#blocktwo{}
+#blocktree{}
+
+</style>
+<!-- Footer -->
+<footer class='container' class="w3-center w3-black w3-padding-48 w3-xxlarge">
+     <a href="https://www.facebook.com/Side-Street-Cafe-Lake-Alfred-125626208052065/" id='block' class="fa fa-facebook"></a>
+      <a style="color:white;"href="https://www.yelp.com/biz/side-street-cafe-lake-alfred?osq=side+strret+cafe"  id="blockOne" class="fa fa-yelp"></a>
+</footer>
+
+<!--Google Map Image -->
+<script type="text/javascript">
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+
+ var value = 0;
+var obj = document.getElementById('back');
+var collection = ['content/img1','content/img2','content/img3','content/img4','content/img5'];
+
+
+  function next(){
+    value ++;
+    obj.style.opacity = 0;
+    if(value > (collection.length -1)){
+      value = 0;
+    }
+   setTimeout('ins()',500);
+  }
+
+  function ins(){
+    obj.style.backgroundImage='url('+ collection[value] +'.jpg)';
+    obj.style.opacity = 1;
+    // console.log(collection[value]);
+    setTimeout('next()',20000);
+  }
+ins();
+      </script>
+    </body>
+</html>
